@@ -1,0 +1,11 @@
+[ui]
+username = Andrew Gliga <agliga@maprtech.com>
+debug = true
+
+[extensions]
+fetch =
+graphlog =
+purge =
+color =
+transplant =
+strip =
