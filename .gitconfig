@@ -1,0 +1,7 @@
+[color]
+	diff = always
+[user]
+	name = Andrew Gliga
+	email = agliga4@gmail.com
+[core]
+	editor = vim
