@@ -95,7 +95,9 @@ export LD_LIBRARY_PATH=/usr/local/lib
 export IVY_CACHE=~/ivy_cache
 export JAVA_HOME=$(/usr/libexec/java_home)
 export PYTHONPATH="/Applications/eclipse/plugins/org.python.pydev_3.0.0.201311051910/pysrc"
-export NODE_PATH=/usr/local/lib/node_modules
+export NPM_PACKAGES=/Users/agliga/.npm-packages
+export NODE_PATH="$NPM_PACKAGES/lib/node_modules:$NODE_PATH"
+export PATH="$NPM_PACKAGES/bin:$PATH"
 
 #alias ls='ls --color'
 alias gr='grep -rni --color=auto'

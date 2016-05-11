@@ -1,0 +1,25 @@
+webapp:
+  title: "Webapp"
+  paths: [
+    "/Users/agliga/development/rpp/webapp"
+  ]
+rppdne:
+  title: "Rpp Dne"
+  paths: [
+    "/Users/agliga/development/rpp/rpp-dne"
+  ]
+ebayuitextspan:
+  title: "Ebayui Textspan"
+  paths: [
+    "/Users/agliga/development/rpp/ebayui-textspan"
+  ]
+ebayuinuwebnavigationdropdown:
+  title: "Ebayui Nuweb Navigation Dropdown"
+  paths: [
+    "/Users/agliga/development/rpp/ebayui-nuweb-navigation-dropdown"
+  ]
+ebayuinuwebitemtile:
+  title: "Ebayui Nuweb Item Tile"
+  paths: [
+    "/Users/agliga/development/rpp/ebayui-nuweb-item-tile"
+  ]
