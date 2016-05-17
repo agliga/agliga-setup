@@ -1,0 +1,55 @@
+"*":
+  "activate-power-mode":
+    autoToggle: false
+  autosave:
+    enabled: true
+  core:
+    openEmptyEditorOnStart: false
+    packagesWithKeymapsDisabled: [
+      "activate-power-mode"
+      "multirow-tabs"
+      "find-and-replace"
+      "file-bookmark"
+    ]
+    projectHome: "/Users/agliga/development"
+    themes: [
+      "atom-material-ui"
+      "atom-material-syntax"
+    ]
+  editor:
+    preferredLineLength: 110
+    showIndentGuide: true
+    showInvisibles: true
+  "exception-reporting":
+    userId: "8af07a9a-f065-0b20-c9e3-d49967484b6d"
+  "file-bookmark":
+    icons: false
+  "find-and-replace":
+    closeFindPanelAfterSearch: true
+    scrollToResultOnLiveSearch: true
+  "fuzzy-finder":
+    preserveLastSearch: true
+  linter:
+    showErrorPanel: false
+  minimap:
+    plugins:
+      cursorline: true
+      cursorlineDecorationsZIndex: 0
+      "find-and-replace": true
+      "find-and-replaceDecorationsZIndex": 0
+      "git-diff": true
+      "git-diffDecorationsZIndex": 0
+      "highlight-selected": true
+      "highlight-selectedDecorationsZIndex": 0
+      linter: false
+      linterDecorationsZIndex: 0
+  tabs:
+    addNewTabsAtEnd: true
+    enableVcsColoring: true
+  "tree-view":
+    squashDirectoryNames: true
+  welcome:
+    showOnStartup: false
+".css.source":
+  editor:
+    preferredLineLength: 110
