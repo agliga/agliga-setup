@@ -30,18 +30,90 @@
 # If you are unfamiliar with CSON, you can read more about it in the
 # Atom Flight Manual:
 # https://atom.io/docs/latest/using-atom-basic-customization#cson
-'atom-text-editor':
-  'cmd-H': 'git-plus:menu'
-
-'.platform-darwin atom-text-editor':
-  'shift-cmd-M': 'file-bookmark:toggle-panel'
-  'cmd-ctrl-m': 'file-bookmark:toggle-bookmark'
-
-'.platform-darwin atom-text-editor.vim-mode:not(.insert-mode)':
-  'alt-p': 'clipboard-plus:toggle'
-
-'atom-workspace':
+'.platform-darwin atom-workspace, .platform-darwin atom-text-editor':
+  # Find replace
+  'cmd-d': 'find-and-replace:select-next'
+  'cmd-k cmd-d': 'find-and-replace:select-skip'
+  # Formatter
+  'cmd-L': 'atom-beautify:beautify-editor'
+  # Cursor history
   'ctrl-i':     'cursor-history:next'
   'ctrl-o':     'cursor-history:prev'
   'ctrl-cmd-i': 'cursor-history:next-within-editor'
   'ctrl-cmd-o': 'cursor-history:prev-within-editor'
+  # Tabs
+  'ctrl-a c': 'tabs:close-other-tabs'
+  # Spelling
+  'ctrl-a s': 'spell-check:correct-misspelling'
+  # Symbols
+  'ctrl-a f': 'symbols-tree-view:toggle'
+  'ctrl-a g': 'symbol-gen:generate'
+  'ctrl-a b': 'symbols-view:go-to-declaration'
+    # Build
+  'ctrl-a r': 'build:trigger'
+  'ctrl-a y': 'build:toggle-panel'
+  'ctrl-a t': 'build:select-active-target'
+  # Emmett
+  'ctrl-a e': 'emmet:expand-abbreviation'
+  # Link
+  'ctrl-a o': 'link:open'
+  # color picker
+  'ctrl-a p': 'color-picker:open'
+  #Project manager
+  'ctrl-cmd-p': 'project-manager:list-projects'
+  # Go to line
+  'cmd-g': 'go-to-line:toggle'
+  # Git commands
+  'ctrl-g d': 'git-diff:toggle-diff-list'
+  'ctrl-g up': 'git-diff:move-to-previous-diff'
+  'ctrl-g down': 'git-diff:move-to-next-diff'
+  'ctrl-g o': 'open-on-github:file'
+  'ctrl-g b': 'open-on-github:blame'
+  'ctrl-g h': 'open-on-github:history'
+  'ctrl-g r': 'open-on-github:repository'
+  'ctrl-g e': 'open-on-github:branch-compare'
+  'ctrl-g c': 'open-on-github:copy-url'
+  'ctrl-g i': 'open-on-github:issues'
+  'ctrl-g l': 'git-log:show'
+  'ctrl-g p': 'git-plus:menu'
+  'ctrl-g t': 'git-time-machine:toggle'
+
+  # Bookmark commands
+  'ctrl-m p': 'bookmarks:view-all'
+  'ctrl-m down': 'bookmarks:jump-to-next-bookmark'
+  'ctrl-m up': 'bookmarks:jump-to-previous-bookmark'
+  'ctrl-m m': 'bookmarks:toggle-bookmark'
+  'ctrl-m c': 'bookmarks:clear-bookmarks'
+  # File bookmark
+  'ctrl-m g': 'file-bookmark:toggle-panel'
+  'ctrl-m f': 'file-bookmark:toggle-bookmark'
+
+'.platform-darwin':
+  #Fuzzy finder
+  'cmd-p': 'fuzzy-finder:toggle-file-finder'
+  'cmd-b': 'fuzzy-finder:toggle-buffer-finder'
+  'cmd-t': 'fuzzy-finder:toggle-git-status-finder'
+  'shift-enter': 'fuzzy-finder:invert-confirm'
+  # Find and replace
+  'cmd-f': 'find-and-replace:show'
+  'cmd-F': 'project-find:show'
+  'cmd-r': 'find-and-replace:show-replace'
+
+'.platform-darwin .find-and-replace':
+  'shift-enter': 'find-and-replace:show-previous'
+  'alt-enter': 'find-and-replace:find-all'
+  'cmd-enter': 'find-and-replace:confirm'
+
+'.find-and-replace, .project-find, .project-find .results-view':
+  'tab': 'find-and-replace:focus-next'
+  'shift-tab': 'find-and-replace:focus-previous'
+
+'.atom-text-editor':
+  'ctrl-space': 'autocomplete-plus:activate'
+
+'atom-text-editor.autocomplete-active':
+  'escape': 'autocomplete-plus:cancel'
+
+
+'.platform-darwin atom-text-editor.vim-mode:not(.insert-mode)':
+  'ctrl-p': 'clipboard-plus:toggle'

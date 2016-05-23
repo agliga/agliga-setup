@@ -8,8 +8,36 @@
     packagesWithKeymapsDisabled: [
       "activate-power-mode"
       "multirow-tabs"
-      "find-and-replace"
+      "build"
+      "clipboard-plus"
+      "cursor-history"
+      "highlight-selected"
+      "linter"
+      "markdown-preview-plus"
+      "project-manager"
+      "symbols-tree-view"
+      "autocomplete-plus"
+      "bracket-matcher"
+      "fuzzy-finder"
+      "grammar-selector"
+      "markdown-preview"
+      "link"
+      "open-on-github"
+      "git-plus"
+      "git-time-machine"
+      "symbols-view"
+      "bookmarks"
       "file-bookmark"
+      "find-and-replace"
+      "go-to-line"
+      "notifications"
+      "symbol-gen"
+      "emmet"
+      "spell-check"
+      "git-control"
+      "git-diff"
+      "atom-beautify"
+      "color-picker"
     ]
     projectHome: "/Users/agliga/development"
     themes: [
@@ -22,13 +50,21 @@
     showInvisibles: true
   "exception-reporting":
     userId: "8af07a9a-f065-0b20-c9e3-d49967484b6d"
-  "file-bookmark":
-    icons: false
+  "file-bookmark": {}
+  "file-icons": {}
   "find-and-replace":
     closeFindPanelAfterSearch: true
     scrollToResultOnLiveSearch: true
+  "formatter-jsbeautify":
+    a: {}
   "fuzzy-finder":
     preserveLastSearch: true
+  "git-blame": {}
+  "git-control":
+    showGitFlowButton: false
+  "git-diff":
+    showIconsInEditorGutter: true
+  "highlight-selected": {}
   linter:
     showErrorPanel: false
   minimap:
@@ -41,15 +77,43 @@
       "git-diffDecorationsZIndex": 0
       "highlight-selected": true
       "highlight-selectedDecorationsZIndex": 0
-      linter: false
+      linter: true
       linterDecorationsZIndex: 0
+  "minimap-git-diff": {}
+  "minimap-linter":
+    markerType: "highlight-under"
+  "project-manager":
+    closeCurrent: true
+  "spell-check":
+    grammars: [
+      "source.asciidoc"
+      "source.gfm"
+      "text.git-commit"
+      "text.plain"
+      "text.plain.null-grammar"
+      "source.js.jsx"
+    ]
   tabs:
-    addNewTabsAtEnd: true
     enableVcsColoring: true
   "tree-view":
     squashDirectoryNames: true
+  "vim-mode-clipboard-plus": {}
+  "vim-mode-plus":
+    useClipboardAsDefaultRegister: true
   welcome:
     showOnStartup: false
 ".css.source":
+  editor:
+    preferredLineLength: 110
+".diff.source":
+  editor:
+    preferredLineLength: 110
+".js.regexp.replacement.source":
+  editor:
+    preferredLineLength: 110
+".js.regexp.source":
+  editor:
+    preferredLineLength: 110
+".js.source":
   editor:
     preferredLineLength: 110
