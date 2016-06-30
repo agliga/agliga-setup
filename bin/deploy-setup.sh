@@ -13,7 +13,8 @@ if [ ! -e ~/.atom ]; then
 fi
 
 cp $ATOM_DIR/*.{cson,coffee,less} ~/.atom
-# Add apm install
+# APM install all atom packages
+ apm install --packages-file $ATOM_DIR/atom-pkg.txt
 
 # Shell (bash/zsh) files
 cp $HOME_DIR/.profile ~
@@ -37,4 +38,5 @@ if [ ! -e ~/.vim ]; then
     git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 fi
 
+# Install all vim packages
 vim +PluginInstall +qall
