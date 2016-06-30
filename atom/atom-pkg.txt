@@ -4,7 +4,6 @@ atom-material-syntax@0.4.6
 atom-material-ui@1.2.13
 autocomplete-modules@1.5.2
 autocomplete-paths@1.0.2
-autocomplete-plus@2.31.0
 build@0.64.0
 build-grunt@0.4.0
 build-npm-apm@0.12.0
