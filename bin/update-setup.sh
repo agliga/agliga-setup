@@ -2,7 +2,8 @@
 
 #This script copies some of the files on your current system to this project
 
-DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+BIN_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+DIR=`dirname $BIN_DIR`
 ATOM_DIR=$DIR/atom
 HOME=$DIR/home
 
@@ -25,4 +26,3 @@ cp ~/.vimrc $HOME
 
 # hgrc
 cp ~/.hgrc $HOME
-
