@@ -47,12 +47,14 @@
   'ctrl-a s': 'spell-check:correct-misspelling'
   # Symbols
   'ctrl-a f': 'symbols-tree-view:toggle'
-  'ctrl-a g': 'symbol-gen:generate'
-  'ctrl-a b': 'symbols-view:go-to-declaration'
+  'ctrl-a b': 'atom-ctags:go-to-declaration'
+  'ctrl-a v': 'atom-ctags:return-from-declaration'
+  'ctrl-a g': 'atom-ctags:rebuild'
     # Build
   'ctrl-a r': 'build:trigger'
-  'ctrl-a y': 'build:toggle-panel'
+  'ctrl-a w': 'build:toggle-panel'
   'ctrl-a t': 'build:select-active-target'
+  'ctrl-a q': 'build:stop'
   # Emmett
   'ctrl-a e': 'emmet:expand-abbreviation'
   # Link
@@ -88,6 +90,14 @@
   'ctrl-m g': 'file-bookmark:toggle-panel'
   'ctrl-m f': 'file-bookmark:toggle-bookmark'
 
+#Terminal commands
+'.platform-darwin atom-workspace':
+  'ctrl-`': 'terminal-plus:toggle'
+  'ctrl-enter': 'terminal-plus:insert-selected-text'
+'.platform-darwin .terminal-plus .terminal':
+  'cmd-c': 'terminal-plus:copy'
+  'cmd-v': 'terminal-plus:paste'
+
 '.platform-darwin':
   #Fuzzy finder
   'cmd-p': 'fuzzy-finder:toggle-file-finder'
@@ -97,7 +107,8 @@
   # Find and replace
   'cmd-f': 'find-and-replace:show'
   'cmd-F': 'project-find:show'
-  'cmd-r': 'find-and-replace:show-replace'
+  'cmd-r': 'atom-ctags:toggle-file-symbols'
+  'shift-cmd-R': 'atom-ctags:toggle-project-symbols'
 
 '.platform-darwin .find-and-replace':
   'shift-enter': 'find-and-replace:show-previous'

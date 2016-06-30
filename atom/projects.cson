@@ -23,3 +23,8 @@ ebayuinuwebitemtile:
   paths: [
     "/Users/agliga/development/rpp/ebayui-nuweb-item-tile"
   ]
+ebayuinuwebsummarycard:
+  title: "Ebayui Nuweb Summary Card"
+  paths: [
+    "/Users/agliga/development/rpp/ebayui-nuweb-summary-card"
+  ]

@@ -1,9 +1,30 @@
 "*":
   "activate-power-mode":
     autoToggle: false
+  "atom-beautify":
+    general:
+      _analyticsUserId: "f90ef273-dd35-4cdd-98c3-80a108bfcaaf"
+  "atom-ctags":
+    autoBuildTagsWhenActive: true
+    buildTimeout: 60000
+    cmd: "/usr/local/bin/ctags"
+  "atom-material-ui":
+    colors: {}
+    tabs:
+      compactTabs: true
+    treeView:
+      compactList: true
+    ui:
+      panelContrast: true
   autosave:
     enabled: true
   core:
+    disabledPackages: [
+      "atom-ctags"
+      "welcome"
+      "metrics"
+      "background-tips"
+    ]
     openEmptyEditorOnStart: false
     packagesWithKeymapsDisabled: [
       "activate-power-mode"
@@ -16,7 +37,6 @@
       "markdown-preview-plus"
       "project-manager"
       "symbols-tree-view"
-      "autocomplete-plus"
       "bracket-matcher"
       "fuzzy-finder"
       "grammar-selector"
@@ -25,10 +45,8 @@
       "open-on-github"
       "git-plus"
       "git-time-machine"
-      "symbols-view"
       "bookmarks"
       "file-bookmark"
-      "find-and-replace"
       "go-to-line"
       "notifications"
       "symbol-gen"
@@ -36,14 +54,22 @@
       "spell-check"
       "git-control"
       "git-diff"
-      "atom-beautify"
       "color-picker"
+      "build-tools"
+      "atom-ctags"
+      "autocomplete-plus"
+      "find-and-replace"
+      "tabs"
+      "terminal-plus"
     ]
     projectHome: "/Users/agliga/development"
     themes: [
       "atom-material-ui"
       "atom-material-syntax"
     ]
+  "cursor-history":
+    debug: true
+    flashOnLand: true
   editor:
     preferredLineLength: 110
     showIndentGuide: true
@@ -67,6 +93,10 @@
   "highlight-selected": {}
   linter:
     showErrorPanel: false
+  "linter-jscs":
+    onlyConfig: true
+  "linter-jshint":
+    disableWhenNoJshintrcFileInPath: true
   minimap:
     plugins:
       cursorline: true
@@ -82,8 +112,13 @@
   "minimap-git-diff": {}
   "minimap-linter":
     markerType: "highlight-under"
+  "one-dark-ui":
+    fontSize: 14
   "project-manager":
-    closeCurrent: true
+    sortBy: "last modified"
+  "seti-ui":
+    compactView: true
+    themeColor: "Steel"
   "spell-check":
     grammars: [
       "source.asciidoc"
@@ -93,6 +128,12 @@
       "text.plain.null-grammar"
       "source.js.jsx"
     ]
+  "split-diff":
+    diffWords: true
+    ignoreWhitespace: true
+    leftEditorColor: "red"
+    rightEditorColor: "green"
+    syncHorizontalScroll: true
   tabs:
     enableVcsColoring: true
   "tree-view":
@@ -102,10 +143,16 @@
     useClipboardAsDefaultRegister: true
   welcome:
     showOnStartup: false
+".babel.regexp.source":
+  editor:
+    preferredLineLength: 110
 ".css.source":
   editor:
     preferredLineLength: 110
 ".diff.source":
+  editor:
+    preferredLineLength: 110
+".js.jsx.source":
   editor:
     preferredLineLength: 110
 ".js.regexp.replacement.source":
