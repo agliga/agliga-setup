@@ -1,7 +1,16 @@
-[color]
-	diff = always
+# This is Git's per-user configuration file.
 [user]
+# Please adapt and uncomment the following lines:
 	name = Andrew Gliga
-	email = agliga4@gmail.com
+	email = agliga@ebay.com
 [core]
-	editor = vim
+        editor = vim
+[web]
+        browser = google-chrome
+[push]
+        default = matching
+[diff]
+        tool = vimdiff
+[difftool]
+        prompt = false
+
