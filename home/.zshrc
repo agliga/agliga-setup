@@ -4,7 +4,7 @@
 export HISTFILE=~/.zsh_history
 export HISTSIZE=50000
 export SAVEHIST=50000
-export TERM="xterm-256color"
+#export TERM="xterm-256color"
 
 autoload -U compinit
 compinit
@@ -30,7 +30,7 @@ export PROMPT=$'%B%F{black}(%f%b%F{cyan}%~%f%B%F{black}) %F{green}%B%#%b%f %f%b'
 #
 
 # Vars used later on by Zsh
-export EDITOR="vim"
+export EDITOR="nvim"
 export BROWSER=links
 
 ##################################################################
@@ -111,6 +111,7 @@ alias fs='cd $DEV/default/trunk/src/fs'
 alias trunk='cd $DEV/default/trunk/'
 alias mcs='cd $DEV/mcs/private-mcs/src/webui'
 alias installer='cd $DEV/installer/private-installer/src/webui'
+alias vim='nvim'
 
 #if $STY is not set...
 #if [ -z "$STY" ]; then
@@ -127,8 +128,9 @@ if [[ -z "$TMUX" ]]; then
       exit
     else
       exec tmux attach
-      exit
     fi
 fi
 
 
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

@@ -10,62 +10,66 @@ filetype off                   " required!
 
 let mapleader = ","
 
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+set rtp+=~/.fzf
+
+call plug#begin('~/.vim/plugged')
+
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Bundles
+" Plug
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" let Vundle manage Vundle
+" let Plug manage Vundle
 " required!
-Plugin 'gmarik/vundle'
+Plug 'gmarik/vundle'
 
 
-Plugin 'scrooloose/nerdtree'
-Plugin 'scrooloose/syntastic'
+Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/syntastic'
 
-Plugin 'scrooloose/snipmate-snippets'
+Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 
-Plugin 'altercation/vim-colors-solarized'
-Plugin 'vim-scripts/YankRing.vim'
-Plugin 'majutsushi/tagbar'
-Plugin 'gregsexton/MatchTag'
-Plugin 'vim-scripts/a.vim'
-Plugin 'mileszs/ack.vim'
-Plugin 'jeetsukumaran/vim-buffergator'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'altercation/vim-colors-solarized'
+Plug 'majutsushi/tagbar'
+Plug 'gregsexton/MatchTag'
+Plug 'vim-scripts/a.vim'
+Plug 'jeetsukumaran/vim-buffergator'
 
-Plugin 'sjl/gundo.vim'
-Plugin 'vim-scripts/IndexedSearch'
-Bundle 'ctrlpvim/ctrlp.vim'
-Bundle 'tacahiroy/ctrlp-funky'
-Bundle 'mbbill/undotree'
-Bundle 'nathanaelkane/vim-indent-guides'
+Plug 'Shougo/deoplete.nvim'
+Plug 'airblade/vim-gitgutter'
+Plug 'eugen0329/vim-esearch'
+Plug 'mhinz/vim-grepper'
 
-Plugin 'ervandew/supertab'
-Plugin 'tpope/vim-surround'
-Plugin 'vim-scripts/restore_view.vim'
-Bundle 'easymotion/vim-easymotion'
-Plugin 'Lokaltog/vim-powerline'
+Plug 'sjl/gundo.vim'
+Plug 'vim-scripts/IndexedSearch'
+Plug 'mbbill/undotree'
+Plug 'nathanaelkane/vim-indent-guides'
+
+Plug 'ervandew/supertab'
+Plug 'tpope/vim-surround'
+Plug 'vim-scripts/restore_view.vim'
+Plug 'easymotion/vim-easymotion'
+Plug 'Lokaltog/vim-powerline'
 
 "Programing
-Bundle 'tpope/vim-fugitive'
-Bundle 'godlygeek/tabular'
+Plug 'tpope/vim-fugitive'
+Plug 'godlygeek/tabular'
 
 "JS
-Bundle 'terryma/vim-multiple-cursors'
-Bundle 'elzr/vim-json'
-Bundle 'groenewege/vim-less'
-Bundle 'pangloss/vim-javascript'
-Bundle 'briancollins/vim-jst'
-Bundle 'kchmck/vim-coffee-script'
-
+Plug 'elzr/vim-json'
+Plug 'groenewege/vim-less'
+Plug 'pangloss/vim-javascript'
+Plug 'briancollins/vim-jst'
+Plug 'kchmck/vim-coffee-script'
+Plug 'terryma/vim-multiple-cursors'
 
 "Other
-Bundle 'tpope/vim-markdown'
-Bundle 'spf13/vim-preview'
+Plug 'tpope/vim-markdown'
+Plug 'spf13/vim-preview'
 
 
-call vundle#end()            " required
+call plug#end()
+
 filetype plugin indent on    " required
 
 
@@ -182,7 +186,6 @@ endif
 set shortmess+=I
 
 set ttyfast " u got a fast terminal
-set ttyscroll=3
 set lazyredraw " to avoid scrolling problems
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -222,19 +225,10 @@ set viminfo^=%
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Ack
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-noremap <Leader>f "zyw:Ack! <C-R>z<CR>
-if executable('ag')
-    let g:ackprg = 'ag --vimgrep'
-endif
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "Nerdtree
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 map <C-e> :NERDTreeToggle<CR>:NERDTreeMirror<CR>
-map <leader>e :NERDTreeFind<CR>
-nmap <leader>nt :NERDTreeFind<CR>
+nmap <leader>e :NERDTreeFind<CR>
 
 "nnoremap <silent> <leader>c :!/usr/local/bin/ctags -R -a -f ~/.vimtags . &<CR>
 
@@ -249,14 +243,21 @@ let g:nerdtree_tabs_open_on_gui_startup=0
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"Grepper
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+noremap <leader>s :Grepper<cr>
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "ctrlp
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:ctrlp_working_path_mode = 'ra'
-nnoremap <silent> <D-t> :CtrlP<CR>
-nnoremap <silent> <D-r> :CtrlPMRU<CR>
-let g:ctrlp_custom_ignore = {
-            \ 'dir':  '\.git$\|\.hg$\|\.svn$',
-            \ 'file': '\.exe$\|\.so$\|\.dll$\|\.pyc$' }
+map <C-p> :FZF<CR>
+"let g:ctrlp_working_path_mode = 'ra'
+"nnoremap <silent> <D-t> :CtrlP<CR>
+"nnoremap <silent> <D-r> :CtrlPMRU<CR>
+"let g:ctrlp_custom_ignore = {
+"            \ 'dir':  '\.git$\|\.hg$\|\.svn$',
+"            \ 'file': '\.exe$\|\.so$\|\.dll$\|\.pyc$' }
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "Sniptmates
@@ -278,40 +279,53 @@ nnoremap <Leader>u :GundoToggle<CR>
 let g:undotree_SetFocusWhenToggle=1
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Syntastic
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_loc_list_height = 5
+let g:syntastic_auto_loc_list = 0
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 1
+let g:syntastic_javascript_checkers = ['jshint', 'jscs']
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Ctags
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set tags=./.tags;/,~/.vimtags
 let g:tagbar_ctags_bin = '/usr/bin/ctags'
 nnoremap <silent> <Leader>c :TagbarToggle<CR>
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" CtrlP
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-nnoremap <silent> <C-t> :CtrlPMixed<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " GVIM- (here instead of .gvimrc)
 """"set guifont=Lucida_Console:h11""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set guioptions-=T           " Remove the toolbar
-set guifont=Monaco:h18
+"set guioptions-=T           " Remove the toolbar
+"set guifont=Monaco:h18
 
-if has('gui_running')
-    set lines=40                " 40 lines of text instead of 24
-    if has('gui_macvim')
-        set transparency=5      " Make the window slightly transparent
-    endif
-else
-    set t_Co=256            " Enable 256 colors to stop the CSApprox warning and make xterm vim shine
+"if has('gui_running')
+"    set lines=40                " 40 lines of text instead of 24
+"    if has('gui_macvim')
+"        set transparency=5      " Make the window slightly transparent
+"    endif
+"else
+"    set t_Co=256            " Enable 256 colors to stop the CSApprox warning and make xterm vim shine
     "set term=builtin_ansi       " Make arrow and other keys work
-endif
+"endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "Colorscheme
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set term=screen-256color
+"let g:solarized_termcolors=256
 syntax enable
-set background=dark
 let g:solarized_termcolors=256
+"let g:solarized_termtrans=1
+"let g:solarized_contrast="normal"
+"let g:solarized_visibility="normal"
+set background=dark
 colorscheme solarized
 
 

@@ -74,6 +74,7 @@
     preferredLineLength: 110
     showIndentGuide: true
     showInvisibles: true
+    tabLength: 4
   "exception-reporting":
     userId: "8af07a9a-f065-0b20-c9e3-d49967484b6d"
   "file-bookmark": {}
@@ -109,6 +110,8 @@
       "highlight-selectedDecorationsZIndex": 0
       linter: true
       linterDecorationsZIndex: 0
+      "split-diff": true
+      "split-diffDecorationsZIndex": 0
   "minimap-git-diff": {}
   "minimap-linter":
     markerType: "highlight-under"

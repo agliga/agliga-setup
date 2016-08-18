@@ -24,5 +24,9 @@ cp ~/.tmux.conf $HOME_DIR
 # Vim
 cp ~/.vimrc $HOME_DIR
 
+# NeoVim
+mkdir -p $HOME_DIR/.config/nvim
+cp ~/.config/nvim/init.vim $HOME_DIR/.config/nvim
+
 # hgrc
 cp ~/.hgrc $HOME_DIR

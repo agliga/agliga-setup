@@ -28,6 +28,10 @@ cp $HOME_DIR/.tmux.conf ~/.tmux.conf
 # Vim
 cp $HOME_DIR/.vimrc ~/.
 
+# NeoVim
+cp -R $HOME_DIR/.config ~/.
+
+
 # hgrc
 cp $HOME_DIR/.hgrc ~
 

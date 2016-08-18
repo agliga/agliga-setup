@@ -11,11 +11,11 @@ export DF=/Users/agliga/Patch
 alias gr='grep -rn'
 alias ls='ls -G'
 alias ll='ls -la'
-alias ack='ack-5.12'
 alias www='cd $DEV/default/trunk/src/www'
 alias fs='cd $DEV/default/trunk/src/fs'
 alias trunk='cd $DEV/default/trunk/'
 alias mcs='cd $DEV/mcs/private-mcs/src/webui'
 alias installer='cd $DEV/installer/private-installer/src/webui'
+alias vim="nvim"
 
 . ~/.zshrc

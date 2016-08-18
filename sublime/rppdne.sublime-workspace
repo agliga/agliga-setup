@@ -1,0 +1,438 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"re",
+				"result"
+			],
+			[
+				"o",
+				"origin"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"contents": "'use strict';\n\nrequire('app-module-path').addPath(require('path').join(__dirname, '../../../../'));\nvar chai = require('chai');\nvar should = chai.should();\nvar expect = chai.expect;\nvar assert = chai.assert;\nvar sinon = require('sinon');\nvar index = require('src/middlewares/index.js');\nvar _ = require('lodash');\nvar config = require('src/config');\n\nfunction validatePageId(req, pageId) {\n    expect(_.get(req, 'ebay.pageId')).to.equal(pageId);\n    expect(_.get(req, 'ebay.tracking.pageId')).to.equal(pageId);\n    expect(_.get(req, 'ebay.tracking.sojournerContext.m_contextData.p')).to.equal(pageId);\n}\n\ndescribe('src/middlewares/index.js', function() {\n    var middleware;\n    var next;\n    var req;\n    var res;\n    beforeEach(() => {\n        middleware = index.middleware();\n        next = sinon.spy();\n        res = {};\n        req = {\n            ebay: {\n                tracking: {}\n            },\n            query: {\n                isAjax: false\n            },\n            route: {\n                config: {\n                    pageId: 123,\n                    ajaxPageId: 456\n                }\n            }\n        };\n        _.set(req, 'ebay.tracking.sojournerContext.m_contextData', {});\n    });\n\n    config.enableMock({\n        'dne': {\n            'DEALS_NA_BASE_URL': 'http://deals.ebay.com',\n            'DEALS_NA_PP_BASE_URL': 'http://deals.pp.ebay.com',\n            'DEALS_NA_QA_BASE_URL': 'http://deals.qa.ebay.com'\n        }\n    });\n\n    it('returns a function', function() {\n        assert.isFunction(middleware);\n    });\n\n    it('should fail with no args', () => {\n        expect(() => middleware()).to.throw(TypeError);\n    });\n\n    it('should pass with proper mocked args', () => {\n        middleware(req, res, next);\n        expect(next.calledOnce).to.be.true;\n        validatePageId(req, 123);\n    });\n\n    it('should set ajax page id', () => {\n        req.query.isAjax = true;\n\n        middleware(req, res, next);\n        expect(next.calledOnce).to.be.true;\n        validatePageId(req, 456);\n    });\n\n    it('should fail setting pageid', () => {\n        req.ebay = null;\n        middleware(req, res, next);\n\n        expect(next.calledOnce).to.be.true;\n        validatePageId(req);\n    });\n\n    it('should work without a next', () => {\n        expect(() => middleware(req, res, null)).to.not.throw(Error);\n    });\n\n    it('should fail with a null pageId', () => {\n        req.route.config.pageId = null;\n        middleware(req, res, next);\n        validatePageId(req);\n    });\n\n});\n",
+			"file": "/Users/agliga/development/rpp/rpp-dne/test/unit/src/middlewares/index.test.js",
+			"file_size": 2510,
+			"file_write_time": 131158401430000000,
+			"settings":
+			{
+				"buffer_size": 2510,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 307.0,
+		"last_filter": "packagein",
+		"selected_items":
+		[
+			[
+				"packagein",
+				"Package Control: Install Package"
+			],
+			[
+				"term",
+				"Terminal: Open in project folder"
+			],
+			[
+				"packagecontrolinsta",
+				"Package Control: Install Package"
+			],
+			[
+				"linter",
+				"SublimeLinter: Lint This View"
+			],
+			[
+				"packagec",
+				"Package Control: Install Package"
+			],
+			[
+				"package",
+				"Package Control: Install Package"
+			],
+			[
+				"markdown",
+				"Markdown Preview: Export HTML in Sublime Text"
+			],
+			[
+				"mark",
+				"Markdown Preview: Open Markdown Cheat sheet"
+			],
+			[
+				":w",
+				":w - Save"
+			],
+			[
+				":W",
+				":w - Save"
+			],
+			[
+				":html",
+				"Set Syntax: HTML"
+			],
+			[
+				":q",
+				"Set Syntax: SQL"
+			]
+		],
+		"width": 593.0
+	},
+	"console":
+	{
+		"height": 126.0,
+		"history":
+		[
+			"cd ~",
+			"bin",
+			"import urllib.request,os,hashlib; h = '2915d1851351e5ee549c20394736b442' + '8bc59f460fa1548d1514676163dafc88'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/Users/agliga/development/rpp/rpp-dne"
+	],
+	"file_history":
+	[
+		"/Users/agliga/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+		"/Users/agliga/development/interview/src/replace.js",
+		"/Users/agliga/development/interview/src/lodash.js",
+		"/private/var/folders/sw/0zr0lp517tx9c0511y0dx1lw3953sd/T/com.microsoft.Outlook/Outlook Temp/document[1].json",
+		"/private/var/folders/sw/0zr0lp517tx9c0511y0dx1lw3953sd/T/com.microsoft.Outlook/Outlook Temp/document.json",
+		"/private/var/folders/sw/0zr0lp517tx9c0511y0dx1lw3953sd/T/com.microsoft.Outlook/Outlook Temp/document[4].json",
+		"/private/var/folders/sw/0zr0lp517tx9c0511y0dx1lw3953sd/T/com.microsoft.Outlook/Outlook Temp/document[2].json",
+		"/Users/agliga/development/rpp/webapp/node_modules/cal/node_modules/colors/ReadMe.md",
+		"/Users/agliga/development/rpp/webapp/src/components/app-global-header/template.marko",
+		"/Users/agliga/development/rpp/webapp/locales/en/deals-events/contextualHeader.properties",
+		"/Users/agliga/development/rpp/webapp/src/pages/rpp-results/Theme/DC/index.marko",
+		"/Users/agliga/development/rpp/webapp/src/components/app-top-heading/template.marko",
+		"/Users/agliga/development/rpp/webapp/src/pages/rpp-results/Theme/DNE/desktop/index.marko",
+		"/Users/agliga/development/rpp/webapp/src/pages/rpp-results/Theme/DNE/mobile/index.marko",
+		"/Users/agliga/development/rpp/webapp/src/pages/rpp-results/Theme/DNE/mobile/index.css",
+		"/Users/agliga/Library/Application Support/Sublime Text 3/Packages/Default/Preferences.sublime-settings",
+		"/Users/agliga/development/rpp/webapp/src/pages/hub/theme/dne/mobile/index.marko",
+		"/Users/agliga/development/rpp/webapp/src/pages/rpp-results/index.js",
+		"/Users/agliga/development/rpp/webapp/src/pages/store/index.js",
+		"/Users/agliga/development/rpp/webapp/src/rpp/dealsTopNavCache.js",
+		"/Users/agliga/development/rpp/webapp/locales/CA/en/deals-events/contextualHeader.properties",
+		"/Users/agliga/development/rpp/webapp/node_modules/i18n-ebay/lib/ContentBundle.js",
+		"/Users/agliga/development/rpp/webapp/node_modules/i18n-ebay/lib/index.js",
+		"/Users/agliga/development/rpp/webapp/node_modules/i18n-ebay/lib/manager-provider.js",
+		"/Users/agliga/development/rpp/webapp/src/app-components/ViewModelBuilder/dne/dealsEventsHelper.js",
+		"/Users/agliga/development/rpp/webapp/locales/en/deals-events/errorMessage.properties"
+	],
+	"find":
+	{
+		"height": 35.0
+	},
+	"find_in_files":
+	{
+		"height": 93.0,
+		"where_history":
+		[
+			"/Users/agliga/development/rpp/webapp",
+			"/Users/agliga/development/rpp/webapp/locales/en",
+			"/Users/agliga/development/rpp/webapp/src/pages",
+			"/Users/agliga/development/rpp/webapp/src/pages/rpp-results",
+			"/Users/agliga/development/rpp/webapp/src/pages",
+			"/Users/agliga/development/rpp/webapp/src"
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"escommand",
+			"catego",
+			"app-top",
+			"app-top-heading",
+			"deals for",
+			"deals_For",
+			"app-top-heading",
+			"top-heading",
+			"top-header",
+			"top-",
+			"event-info-wrapper",
+			"deals_for",
+			"deals for",
+			"en/",
+			"en",
+			"deals_for =",
+			"gettext",
+			"bundle",
+			"getText",
+			"getBundle",
+			"getBindle",
+			"errorMessage",
+			"DealsEventsHelper",
+			"DEALS_FOR",
+			"deals for",
+			"deals on",
+			"encode",
+			"nkw",
+			"app-top-heading",
+			"top-heading"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "/Users/agliga/development/rpp/rpp-dne/test/unit/src/middlewares/index.test.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2510,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								608,
+								608
+							]
+						],
+						"settings":
+						{
+							"auto_complete": false,
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+								},
+								"icon":
+								{
+								},
+								"open":
+								{
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content"
+							],
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 195.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 25.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "rppdne.sublime-project",
+	"replace":
+	{
+		"height": 46.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"read",
+				"README.md"
+			],
+			[
+				"readme",
+				"node_modules/cal/node_modules/colors/ReadMe.md"
+			],
+			[
+				"globalheader/",
+				"src/components/app-global-header/template.marko"
+			],
+			[
+				"dealseven",
+				"src/app-components/ViewModelBuilder/dne/dealsEventsHelper.js"
+			],
+			[
+				"managerpro",
+				"node_modules/i18n-ebay/lib/manager-provider.js"
+			],
+			[
+				"errormessage",
+				"locales/en/deals-events/errorMessage.properties"
+			],
+			[
+				"",
+				"untitled"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"",
+				"~/development/access/webapp.sublime-project"
+			]
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 256.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
