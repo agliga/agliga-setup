@@ -23,3 +23,6 @@
   'Arrow Function':
     'prefix': '=>'
     'body': '($1) => {$2}'
+  'Console log':
+    'prefix': 'cl'
+    'body': 'console.log($1);'

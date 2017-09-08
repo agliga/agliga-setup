@@ -16,14 +16,49 @@
       compactList: true
     ui:
       panelContrast: true
+  "atom-ternjs":
+    useSnippets: true
+  "autocomplete-plus":
+    suppressActivationForEditorClasses: [
+      "vim-mode-plus.normal-mode"
+      "vim-mode-plus.visual-mode"
+      "vim-mode-plus.operator-pending-mode"
+      "vim-mode-plus.insert-mode.replace"
+    ]
   autosave:
     enabled: true
   core:
+    customFileTypes:
+      "source.ini": [
+        ".buckconfig"
+        ".flowconfig"
+        ".hgrc"
+      ]
+      "source.json": [
+        ".arcconfig"
+        "BUCK.autodeps"
+      ]
+      "source.python": [
+        "BUCK"
+      ]
     disabledPackages: [
       "atom-ctags"
       "welcome"
       "metrics"
       "background-tips"
+      "tree-view"
+    ]
+    excludeVcsIgnoredPaths: false
+    ignoredNames: [
+      ".git"
+      ".hg"
+      ".svn"
+      ".DS_Store"
+      "._*"
+      "Thumbs.db"
+      "static"
+      "coverage"
+      "node_modules"
     ]
     openEmptyEditorOnStart: false
     packagesWithKeymapsDisabled: [
@@ -38,14 +73,12 @@
       "project-manager"
       "symbols-tree-view"
       "bracket-matcher"
-      "fuzzy-finder"
       "grammar-selector"
       "markdown-preview"
       "link"
       "open-on-github"
       "git-plus"
       "git-time-machine"
-      "bookmarks"
       "file-bookmark"
       "go-to-line"
       "notifications"
@@ -61,6 +94,11 @@
       "find-and-replace"
       "tabs"
       "terminal-plus"
+      "bookmarks"
+      "fuzzy-finder"
+      "atom-ternjs"
+      "vim-mode-plus"
+      "git-log"
     ]
     projectHome: "/Users/agliga/development"
     themes: [
@@ -70,6 +108,8 @@
   "cursor-history":
     debug: true
     flashOnLand: true
+  "disable-keybindings":
+    allCommunityPackages: true
   editor:
     preferredLineLength: 110
     showIndentGuide: true
@@ -82,6 +122,7 @@
   "find-and-replace":
     closeFindPanelAfterSearch: true
     scrollToResultOnLiveSearch: true
+  fonts: {}
   "formatter-jsbeautify":
     a: {}
   "fuzzy-finder":
@@ -91,13 +132,21 @@
     showGitFlowButton: false
   "git-diff":
     showIconsInEditorGutter: true
+  "git-plus":
+    diffs: {}
+    experimental: {}
+    general:
+      _analyticsUserId: "03475780-ddd6-4365-a245-9004805d7643"
+      splitPane: "Right"
   "highlight-selected": {}
-  linter:
-    showErrorPanel: false
+  linter: {}
   "linter-jscs":
     onlyConfig: true
   "linter-jshint":
     disableWhenNoJshintrcFileInPath: true
+  "linter-less":
+    ignoreLessrc: true
+    strictUnits: true
   minimap:
     plugins:
       cursorline: true
@@ -115,6 +164,34 @@
   "minimap-git-diff": {}
   "minimap-linter":
     markerType: "highlight-under"
+  nuclide:
+    installRecommendedPackages: true
+    "nuclide-debugger-node": {}
+    "nuclide-distraction-free-mode": {}
+    "nuclide-file-tree":
+      revealFileOnSwitch: true
+      showOpenFiles: false
+    "nuclide-flow": {}
+    "nuclide-home":
+      showHome: false
+    "nuclide-notifications": {}
+    "nuclide-ocaml": {}
+    "nuclide-related-files": {}
+    "nuclide-remote-projects": {}
+    "nuclide-vcs-log": {}
+    "nuclide-working-sets":
+      workingSets: [
+        {
+          name: "Code"
+          active: true
+          uris: [
+            "/Users/agliga/development/rpp/rpp-dne/config"
+            "/Users/agliga/development/rpp/rpp-dne/grunt"
+            "/Users/agliga/development/rpp/rpp-dne/src"
+            "/Users/agliga/development/rpp/rpp-dne/test"
+          ]
+        }
+      ]
   "one-dark-ui":
     fontSize: 14
   "project-manager":
@@ -132,20 +209,26 @@
       "source.js.jsx"
     ]
   "split-diff":
-    diffWords: true
     ignoreWhitespace: true
     leftEditorColor: "red"
     rightEditorColor: "green"
     syncHorizontalScroll: true
   tabs:
     enableVcsColoring: true
+  "tool-bar":
+    visible: false
   "tree-view":
+    autoReveal: true
+    hideVcsIgnoredFiles: true
     squashDirectoryNames: true
-  "vim-mode-clipboard-plus": {}
-  "vim-mode-plus":
+  "vim-mode":
     useClipboardAsDefaultRegister: true
   welcome:
     showOnStartup: false
+".ansi.text":
+  editor:
+    preferredLineLength: 110
+    tabLength: 4
 ".babel.regexp.source":
   editor:
     preferredLineLength: 110
@@ -155,6 +238,18 @@
 ".diff.source":
   editor:
     preferredLineLength: 110
+".hack.html.text":
+  editor:
+    preferredLineLength: 110
+    tabLength: 4
+".hackfragment.source":
+  editor:
+    preferredLineLength: 110
+    tabLength: 4
+".hg-commit.text":
+  editor:
+    preferredLineLength: 110
+    tabLength: 4
 ".js.jsx.source":
   editor:
     preferredLineLength: 110

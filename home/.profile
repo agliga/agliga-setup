@@ -8,6 +8,8 @@ export DEV=~/development
 
 export DF=/Users/agliga/Patch
 
+export SPRINT_BRANCH=Y17_Sprint11
+
 alias gr='grep -rn'
 alias ls='ls -G'
 alias ll='ls -la'
@@ -17,5 +19,12 @@ alias trunk='cd $DEV/default/trunk/'
 alias mcs='cd $DEV/mcs/private-mcs/src/webui'
 alias installer='cd $DEV/installer/private-installer/src/webui'
 alias vim="nvim"
+
+alias rpp='cd ~/development/rpp/rpp-dne'
+alias clt='cd ~/development/rpp/webapp'
+alias dne='cd ~/development/rpp'
+alias lnp='cd ~/development/lnp'
+alias dev='cd ~/development/'
+
 
 . ~/.zshrc

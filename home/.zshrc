@@ -1,4 +1,4 @@
-###########################################################        
+###########################################################
 # Options for Zsh
 
 export HISTFILE=~/.zsh_history
@@ -70,7 +70,7 @@ bindkey '^[[6~' down-line-or-history
 bindkey '^[[A' up-line-or-search
 bindkey '^[[D' backward-char
 bindkey '^[[B' down-line-or-search
-bindkey '^[[C' forward-char 
+bindkey '^[[C' forward-char
 bindkey '^[w' backward-delete-to-slash
 # completion in the middle of a line
 bindkey '^i' expand-or-complete-prefix
@@ -118,19 +118,11 @@ alias vim='nvim'
 #    exec screen -ARR -d -m
 #fi
 
-bindkey '^R' history-incremental-search-backward
+#bindkey '^R' history-incremental-search-backward
 
 # This should always be run last either in .bashrc or as a script in .bashrc.d
-if [[ -z "$TMUX" ]]; then
-    tmux has-session &> /dev/null
-    if [ $? -eq 1 ]; then
-      exec tmux new
-      exit
-    else
-      exec tmux attach
-    fi
-fi
-
-
+#
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+~/.run-tmux

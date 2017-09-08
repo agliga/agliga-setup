@@ -2,9 +2,9 @@
 " agliga vimrc
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Start
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"====================================================================================
+"=                                                                            Start =
+"====================================================================================
 set nocompatible               " be iMproved
 filetype off                   " required!
 
@@ -14,46 +14,50 @@ set rtp+=~/.fzf
 
 call plug#begin('~/.vim/plugged')
 
+"====================================================================================
+"=                                                                          Plugins =
+"====================================================================================
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Plug
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " let Plug manage Vundle
-" required!
-Plug 'gmarik/vundle'
 
-
+"File finding/Search
 Plug 'scrooloose/nerdtree'
-Plug 'scrooloose/syntastic'
-
-Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
-
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'altercation/vim-colors-solarized'
-Plug 'majutsushi/tagbar'
-Plug 'gregsexton/MatchTag'
-Plug 'vim-scripts/a.vim'
-Plug 'jeetsukumaran/vim-buffergator'
-
-Plug 'Shougo/deoplete.nvim'
-Plug 'airblade/vim-gitgutter'
+Plug 'Shougo/unite.vim'
 Plug 'eugen0329/vim-esearch'
 Plug 'mhinz/vim-grepper'
-
-Plug 'sjl/gundo.vim'
 Plug 'vim-scripts/IndexedSearch'
-Plug 'mbbill/undotree'
+Plug 'easymotion/vim-easymotion'
+
+"Code Quality
+Plug 'scrooloose/syntastic'
 Plug 'nathanaelkane/vim-indent-guides'
 
+
+" Autocomplete
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 Plug 'ervandew/supertab'
-Plug 'tpope/vim-surround'
+
+" Version Control tools
+Plug 'airblade/vim-gitgutter'
+Plug 'tpope/vim-fugitive'
+
+" Color
+Plug 'altercation/vim-colors-solarized'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+
+
+
 Plug 'vim-scripts/restore_view.vim'
-Plug 'easymotion/vim-easymotion'
-Plug 'Lokaltog/vim-powerline'
 
 "Programing
-Plug 'tpope/vim-fugitive'
 Plug 'godlygeek/tabular'
+Plug 'scrooloose/nerdcommenter'
+Plug 'majutsushi/tagbar'
+Plug 'sjl/gundo.vim' "Undo
+Plug 'tpope/vim-surround'
 
 "JS
 Plug 'elzr/vim-json'
@@ -70,12 +74,121 @@ Plug 'spf13/vim-preview'
 
 call plug#end()
 
-filetype plugin indent on    " required
+"====================================================================================
+"|                                                                     VIM Settings |
+"====================================================================================
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => VIM user interface
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Set 7 lines to the cursor - when moving vertically using j/k
+set so=7
+
+" Avoid garbled characters in Chinese language windows OS
+let $LANG='en'
+set langmenu=en
+source $VIMRUNTIME/delmenu.vim
+source $VIMRUNTIME/menu.vim
+
+" Turn on the WiLd menu
+set wildmenu
+
+" Ignore compiled files
+set wildignore=*.o,*~,*.pyc
+if has("win16") || has("win32")
+    set wildignore+=.git\*,.hg\*,.svn\*
+else
+    set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/.DS_Store
+endif
+
+"Always show current position
+set ruler
+
+" Height of the command bar
+set cmdheight=2
+
+" A buffer becomes hidden when it is abandoned
+set hid
+
+" Configure backspace so it acts as it should act
+set backspace=eol,start,indent
+set whichwrap+=<,>,h,l
+
+" Ignore case when searching
+set ignorecase
+
+" When searching try to be smart about cases
+set smartcase
+
+" Highlight search results
+set hlsearch
+
+" Makes search act like search in modern browsers
+set incsearch
+
+" Don't redraw while executing macros (good performance config)
+set lazyredraw
+
+" For regular expressions turn magic on
+set magic
+
+" Show matching brackets when text indicator is over them
+set showmatch
+" How many tenths of a second to blink when matching brackets
+set mat=2
+
+" No annoying sound on errors
+set noerrorbells
+set novisualbell
+set t_vb=
+set tm=500
+
+" Add a bit extra margin to the left
+set foldcolumn=1
 
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Set
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Colors and Fonts
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Enable syntax highlighting
+syntax enable
+
+" Set utf8 as standard encoding and en_US as the standard language
+set encoding=utf8
+
+" Use Unix as the standard file type
+set ffs=unix,dos,mac
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Files, backups and undo
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Turn backup off, since most stuff is in SVN, git et.c anyway...
+set nobackup
+set nowb
+set noswapfile
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Text, tab and indent related
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Use spaces instead of tabs
+set expandtab
+
+" Be smart when using tabs ;)
+set smarttab
+
+" 1 tab == 4 spaces
+set shiftwidth=4
+set tabstop=4
+
+" Linebreak on 500 characters
+set lbr
+set tw=500
+
+set cindent
+set cinkeys-=0#
+set indentkeys-=0#
+set wrap "Wrap lines
 
 set nobackup
 
@@ -98,11 +211,6 @@ set wrap        "wrap lines
 set linebreak   "wrap lines at convenient points
 
 
-"default indent settings
-set shiftwidth=4
-set softtabstop=4
-set expandtab
-set smarttab
 set autoindent
 set smartindent
 
@@ -112,41 +220,57 @@ set foldnestmax=3       "deepest fold is 3 levels
 set nofoldenable        "dont fold by default
 
 set wildmode=list:longest,full  " Command <Tab> completion, list matches, then longest common part, then all.
-set wildmenu                "enable ctrl-n and ctrl-p to scroll thru matches
-set whichwrap=b,s,h,l,<,>,[,]   " Backspace and cursor keys wrap too
-set wildignore=*.o,*.obj,*~ "stuff to ignore when tab completing
-
 set shortmess+=filmnrxoOtT          " Abbrev. of messages (avoids 'hit enter')
-set viewoptions=folds,options,cursor,unix,slash " Better Unix / Windows compatibility
+set viewoptions=cursor,folds,slash,unix
+
 set virtualedit=onemore             " Allow for cursor beyond last character
 set hidden                          " Allow buffer switching without saving
 
-set cursorline
-set ruler                   " Show the ruler
-set rulerformat=%30(%=\:b%n%y%m%r%w\ %l,%c%V\ %P%) " A ruler on steroids
-set showcmd                 " Show partial commands in status line and
-                            " Selected
-                            " characters/lines in
-                            " visual mode
 
+
+""""""""""""""""""""""""""""""
+" Auto command
+""""""""""""""""""""""""""""""
+autocmd BufLeave,FocusLost * silent! w
+autocmd BufWritePre * %s/\s\+$//e
+
+
+""""""""""""""""""""""""""""""
+" Ruler and constraints
+""""""""""""""""""""""""""""""
+set cursorline
+set rulerformat=%30(%=\:b%n%y%m%r%w\ %l,%c%V\ %P%) " A ruler on steroids
 
 set pastetoggle=<F2>
 
+set colorcolumn=110
 
-if has('statusline')
-    set laststatus=2
+
+
+""""""""""""""""""""""""""""""
+" => Status line
+""""""""""""""""""""""""""""""
+" Always show the status line
+set laststatus=2
+
+" Format the status line
+"set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ %l\ \ Column:\ %c
+
+
+"if has('statusline')
+    "set laststatus=2
 
     " Broken down into easily includeable segments
-    set statusline=%<%f\                     " Filename
-    set statusline+=%w%h%m%r                 " Options
+    "set statusline=%<%f\                     " Filename
+    "set statusline+=%w%h%m%r                 " Options
     "set statusline+=%{fugitive#statusline()} " Git Hotness
-    set statusline+=\ [%{&ff}/%Y]            " Filetype
-    set statusline+=\ [%{getcwd()}]          " Current dir
-    set statusline+=%=%-14.(%l,%c%V%)\ %p%%  " Right aligned file nav info
+    "set statusline+=\ [%{&ff}/%Y]            " Filetype
+    "set statusline+=\ [%{getcwd()}]          " Current dir
+    "set statusline+=%=%-14.(%l,%c%V%)\ %p%%  " Right aligned file nav info
 
-    let g:airline_theme='powerlineish'       " airline users use the powerline theme
-    let g:airline_powerline_fonts=1          " and the powerline fonts
-endif
+    "let g:airline_theme='powerlineish'       " airline users use the powerline theme
+    "let g:airline_powerline_fonts=1          " and the powerline fonts
+"endif
 
 filetype plugin on
 
@@ -178,19 +302,18 @@ set nobackup
 set nowb
 set noswapfile
 
-"dont load csapprox if we no gui support - silences an annoying warning
-if !has("gui")
-    let g:CSApprox_loaded = 1
-endif
-
 set shortmess+=I
 
 set ttyfast " u got a fast terminal
 set lazyredraw " to avoid scrolling problems
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"Key schemes
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Remember info about open buffers on close
+set viminfo^=%
+
+"====================================================================================
+"|                                                                      VIM Keymaps |
+"====================================================================================
+
 map <C-J> <C-W>j
 map <C-K> <C-W>k
 map <C-L> <C-W>l
@@ -217,12 +340,25 @@ imap [H g0
 " Toggle search highlighting
 nmap <silent> <leader>/ :nohlsearch<CR>
 
-" Remember info about open buffers on close
-set viminfo^=%
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"Plugins
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"====================================================================================
+"|                                                                     VIM Commands |
+"====================================================================================
+
+
+:command WQ wq
+:command Wq wq
+:command W w
+:command Q q
+
+"====================================================================================
+"|                                                                  Plugin settings |
+"====================================================================================
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" vim-multiple-cursors
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:multi_cursor_next_key="\<C-s>"
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "Nerdtree
@@ -241,12 +377,16 @@ let NERDTreeShowHidden=1
 let NERDTreeKeepTreeInNewTab=1
 let g:nerdtree_tabs_open_on_gui_startup=0
 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Unite
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+nnoremap <silent> <leader>b :Unite buffer<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "Grepper
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 noremap <leader>s :Grepper<cr>
-
+nnoremap <leader>git :Grepper -tool git -noswitch<cr>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "ctrlp
@@ -267,9 +407,24 @@ let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Grepper
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+nnoremap <silent> <leader>gg :Grepper<CR>
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " TagBar
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 nnoremap <silent> <leader>tt :TagbarToggle<CR>
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Airline
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_theme='solarized'       " airline users use the powerline theme
+"let g:airline_powerline_fonts=1          " and the powerline fonts
+
+
+
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " GUndo
@@ -281,47 +436,40 @@ let g:undotree_SetFocusWhenToggle=1
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Syntastic
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
+"set statusline+=%#warningmsg#
+"set statusline+=%{SyntasticStatuslineFlag()}
+"set statusline+=%*
 
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_loc_list_height = 5
 let g:syntastic_auto_loc_list = 0
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 1
-let g:syntastic_javascript_checkers = ['jshint', 'jscs']
+let g:syntastic_javascript_checkers = ['eslint']
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Ctags
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set tags=./.tags;/,~/.vimtags
 let g:tagbar_ctags_bin = '/usr/bin/ctags'
-nnoremap <silent> <Leader>c :TagbarToggle<CR>
-
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" GVIM- (here instead of .gvimrc)
-""""set guifont=Lucida_Console:h11""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"set guioptions-=T           " Remove the toolbar
-"set guifont=Monaco:h18
-
-"if has('gui_running')
-"    set lines=40                " 40 lines of text instead of 24
-"    if has('gui_macvim')
-"        set transparency=5      " Make the window slightly transparent
-"    endif
-"else
-"    set t_Co=256            " Enable 256 colors to stop the CSApprox warning and make xterm vim shine
-    "set term=builtin_ansi       " Make arrow and other keys work
-"endif
+" Deoplete.
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:deoplete#enable_at_startup = 1
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"Colorscheme
+"JSON
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:vim_json_syntax_conceal = 0
+
+"====================================================================================
+"|                                                                     Color Scheme |
+"====================================================================================
+
 "let g:solarized_termcolors=256
 syntax enable
-let g:solarized_termcolors=256
+"let g:solarized_termcolors=256
 "let g:solarized_termtrans=1
 "let g:solarized_contrast="normal"
 "let g:solarized_visibility="normal"
@@ -329,4 +477,59 @@ set background=dark
 colorscheme solarized
 
 
+"====================================================================================
+"|                                                                 Helper Functions |
+"====================================================================================
 
+function! CmdLine(str)
+    exe "menu Foo.Bar :" . a:str
+    emenu Foo.Bar
+    unmenu Foo
+endfunction
+
+function! VisualSelection(direction, extra_filter) range
+    let l:saved_reg = @"
+    execute "normal! vgvy"
+
+    let l:pattern = escape(@", '\\/.*$^~[]')
+    let l:pattern = substitute(l:pattern, "\n$", "", "")
+
+    if a:direction == 'gv'
+        call CmdLine("Ag \"" . l:pattern . "\" " )
+    elseif a:direction == 'replace'
+        call CmdLine("%s" . '/'. l:pattern . '/')
+    endif
+
+    let @/ = l:pattern
+    let @" = l:saved_reg
+endfunction
+
+
+" Returns true if paste mode is enabled
+function! HasPaste()
+    if &paste
+        return 'PASTE MODE  '
+    endif
+    return ''
+endfunction
+
+" Don't close window, when deleting a buffer
+command! Bclose call <SID>BufcloseCloseIt()
+function! <SID>BufcloseCloseIt()
+   let l:currentBufNum = bufnr("%")
+   let l:alternateBufNum = bufnr("#")
+
+   if buflisted(l:alternateBufNum)
+     buffer #
+   else
+     bnext
+   endif
+
+   if bufnr("%") == l:currentBufNum
+     new
+   endif
+
+   if buflisted(l:currentBufNum)
+     execute("bdelete! ".l:currentBufNum)
+   endif
+endfunction
