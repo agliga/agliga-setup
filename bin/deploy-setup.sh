@@ -24,6 +24,7 @@ cp $HOME_DIR/.bashrc ~/.bashrc
 
 # Tmux config
 cp $HOME_DIR/.tmux.conf ~/.tmux.conf
+cp $HOME_DIR/.run-tmux ~/.run-tmux
 
 # Vim
 cp $HOME_DIR/.vimrc ~/.
@@ -31,7 +32,8 @@ cp $HOME_DIR/.vimrc ~/.
 # NeoVim
 cp -R $HOME_DIR/.config ~/.
 
-
+# Git
+cp $HOME_DIR/.gitconfig ~
 # hgrc
 cp $HOME_DIR/.hgrc ~
 
