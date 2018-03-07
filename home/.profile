@@ -9,6 +9,11 @@ export DEV=~/development
 export DF=/Users/agliga/Patch
 
 export SPRINT_BRANCH=Y17_Sprint11
+export M2_HOME=/Applications/ride-5.2.1-mac64/apache-maven-3.1.1
+
+export PATH=$PATH:$M2_HOME/bin
+
+export JAVA_HOME=/Applications/ride-5.2.1-mac64/OracleJDK-1.7.0_79 
 
 alias gr='grep -rn'
 alias ls='ls -G'

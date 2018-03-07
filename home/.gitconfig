@@ -1,10 +1,10 @@
 # This is Git's per-user configuration file.
 [user]
 # Please adapt and uncomment the following lines:
-    name =
-    email =
+    name = Andrew Gliga
+    email = agliga@ebay.com
 [core]
-    editor = nvim
+    editor = vim
 [web]
     browser = google-chrome
 [push]
@@ -62,6 +62,7 @@
     f = fetch
     fo = fetch origin
     fu = fetch upstream
+    fa = fetch --all
     #############
     fp = format-patch
     #############

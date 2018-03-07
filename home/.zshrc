@@ -98,6 +98,7 @@ export PYTHONPATH="/Applications/eclipse/plugins/org.python.pydev_3.0.0.20131105
 export NPM_PACKAGES=/Users/agliga/.npm-packages
 export NODE_PATH="$NPM_PACKAGES/lib/node_modules:$NODE_PATH"
 export PATH="$NPM_PACKAGES/bin:$PATH"
+export SPRINT_BRANCH="Y17_Sprint17"
 
 #alias ls='ls --color'
 alias gr='grep -rni --color=auto'
@@ -111,14 +112,20 @@ alias fs='cd $DEV/default/trunk/src/fs'
 alias trunk='cd $DEV/default/trunk/'
 alias mcs='cd $DEV/mcs/private-mcs/src/webui'
 alias installer='cd $DEV/installer/private-installer/src/webui'
-alias vim='nvim'
 
-#if $STY is not set...
-#if [ -z "$STY" ]; then
-#    exec screen -ARR -d -m
-#fi
+alias dev='cd ~/Development/'
+alias brs='cd ~/Development/browseo/search_node'
+alias sbrs='cd ~/Development/browseo/search_service'
+alias rpp='cd ~/Development/deals/rpp-dne'
+alias xps='cd ~/Development/deals/rpp-xp-service'
+alias mon='cd ~/Development/deals/rpp-dne-monitor'
+alias mtr='cd ~/Development/browseo/motorsvertical'
+alias fsale='cd ~/Development/browseo/RPP'
 
-#bindkey '^R' history-incremental-search-backward
+export NVM_DIR=~/.nvm
+. $(brew --prefix nvm)/nvm.sh
+
+bindkey '^R' history-incremental-search-backward
 
 # This should always be run last either in .bashrc or as a script in .bashrc.d
 #
@@ -126,3 +133,6 @@ alias vim='nvim'
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 ~/.run-tmux
+
+export PATH="$HOME/.yarn/bin:$PATH"
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

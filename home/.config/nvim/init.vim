@@ -12,7 +12,8 @@ let mapleader = ","
 
 set rtp+=~/.fzf
 
-call plug#begin('~/.vim/plugged')
+call plug#begin( '~/.config/nvim/bundle')
+
 
 "====================================================================================
 "=                                                                          Plugins =

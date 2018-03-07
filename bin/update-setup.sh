@@ -17,7 +17,7 @@ cp ~/.profile $HOME_DIR
 cp ~/.zprofile $HOME_DIR
 cp ~/.zshrc $HOME_DIR
 cp ~/.bashrc $HOME_DIR
-cp ~/.run_tmux $HOME_DIR
+cp ~/.run-tmux $HOME_DIR
 cp ~/.gitconfig $HOME_DIR
 
 # Tmux config
