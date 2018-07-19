@@ -4,7 +4,7 @@
 export HISTFILE=~/.zsh_history
 export HISTSIZE=50000
 export SAVEHIST=50000
-#export TERM="xterm-256color"
+export TERM="xterm-256color"
 
 autoload -U compinit
 compinit
@@ -93,7 +93,6 @@ export LSCOLORS=ExFxCxDxBxegedabagacad
 
 export LD_LIBRARY_PATH=/usr/local/lib
 export IVY_CACHE=~/ivy_cache
-export JAVA_HOME=$(/usr/libexec/java_home)
 export PYTHONPATH="/Applications/eclipse/plugins/org.python.pydev_3.0.0.201311051910/pysrc"
 export NPM_PACKAGES=/Users/agliga/.npm-packages
 export NODE_PATH="$NPM_PACKAGES/lib/node_modules:$NODE_PATH"
@@ -103,27 +102,9 @@ export SPRINT_BRANCH="Y17_Sprint17"
 #alias ls='ls --color'
 alias gr='grep -rni --color=auto'
 alias ll='ls -la'
-alias gr='grep -rn'
-alias ls='ls -G'
-alias ll='ls -la'
 alias ack='ack-5.12'
-alias www='cd $DEV/default/trunk/src/www'
-alias fs='cd $DEV/default/trunk/src/fs'
-alias trunk='cd $DEV/default/trunk/'
-alias mcs='cd $DEV/mcs/private-mcs/src/webui'
-alias installer='cd $DEV/installer/private-installer/src/webui'
 
 alias dev='cd ~/Development/'
-alias brs='cd ~/Development/browseo/search_node'
-alias sbrs='cd ~/Development/browseo/search_service'
-alias rpp='cd ~/Development/deals/rpp-dne'
-alias xps='cd ~/Development/deals/rpp-xp-service'
-alias mon='cd ~/Development/deals/rpp-dne-monitor'
-alias mtr='cd ~/Development/browseo/motorsvertical'
-alias fsale='cd ~/Development/browseo/RPP'
-
-export NVM_DIR=~/.nvm
-. $(brew --prefix nvm)/nvm.sh
 
 bindkey '^R' history-incremental-search-backward
 
