@@ -85,26 +85,24 @@ bindkey "\eOF" end-of-line
 bindkey "\e[H" beginning-of-line
 bindkey "\e[F" end-of-line
 
-export DEV=~/development
-export DF=~/Patch
+# Environment Variables
+#export NPM_PACKAGES=/home/agliga/.npm-packages
+#export NODE_PATH="$NPM_PACKAGES/lib/node_modules:$NODE_PATH"
+#export PATH="$NPM_PACKAGES/bin:$PATH"
+#export PATH="$HOME/.yarn/bin:$PATH"
+
+export PATH=/opt/local/bin:/opt/local/sbin:/home/agliga/Development/flutter/bin:$PATH
+
 export CLICOLOR=1
 export GREP_COLOR='1;37;41'
 export LSCOLORS=ExFxCxDxBxegedabagacad
 
-export LD_LIBRARY_PATH=/usr/local/lib
-export IVY_CACHE=~/ivy_cache
-export PYTHONPATH="/Applications/eclipse/plugins/org.python.pydev_3.0.0.201311051910/pysrc"
-export NPM_PACKAGES=/Users/agliga/.npm-packages
-export NODE_PATH="$NPM_PACKAGES/lib/node_modules:$NODE_PATH"
-export PATH="$NPM_PACKAGES/bin:$PATH"
-export SPRINT_BRANCH="Y17_Sprint17"
-
-#alias ls='ls --color'
 alias gr='grep -rni --color=auto'
 alias ll='ls -la'
 alias ack='ack-5.12'
 
 alias dev='cd ~/Development/'
+alias wj='cd ~/Development/winejoy'
 
 bindkey '^R' history-incremental-search-backward
 
@@ -115,5 +113,4 @@ bindkey '^R' history-incremental-search-backward
 
 ~/.run-tmux
 
-export PATH="$HOME/.yarn/bin:$PATH"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
