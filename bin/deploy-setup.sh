@@ -37,6 +37,9 @@ cp $HOME_DIR/.gitconfig ~
 # hgrc
 cp $HOME_DIR/.hgrc ~
 
+cp -R $HOME_DIR/.cinnamon ~
+cp -R $HOME_DIR/.devilspie ~
+
 # Set up vundle for vim
 if [ ! -e ~/.vim ]; then
     mkdir ~/.vim
@@ -44,5 +47,10 @@ if [ ! -e ~/.vim ]; then
     git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 fi
 
+
+
 # Install all vim packages
 vim +PluginInstall +qall
+
+
+curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim

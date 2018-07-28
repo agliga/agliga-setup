@@ -1,0 +1,7 @@
+; nemo rule to send to window 5
+
+(if (is (window_class) "Nemo")
+ (begin
+  (set_workspace 5)
+ )
+)

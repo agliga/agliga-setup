@@ -97,6 +97,7 @@ export CLICOLOR=1
 export GREP_COLOR='1;37;41'
 export LSCOLORS=ExFxCxDxBxegedabagacad
 
+alias ls="ls --color=always"
 alias gr='grep -rni --color=auto'
 alias ll='ls -la'
 alias ack='ack-5.12'
