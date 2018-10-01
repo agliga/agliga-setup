@@ -1,0 +1,45 @@
+{
+    "window.zoomLevel": 1,
+    "editor.accessibilitySupport": "off",
+    "files.autoSave": "afterDelay",
+    "files.autoSaveDelay": 10000,
+    "files.trimTrailingWhitespace": true,
+    "editor.fontSize": 14,
+    "workbench.commandPalette.preserveInput": true,
+    "workbench.editor.labelFormat": "medium",
+    "workbench.editor.tabSizing": "shrink",
+    "workbench.statusBar.feedback.visible": false,
+    "window.newWindowDimensions": "maximized",
+    "window.title": "${dirty}${activeEditorLong}${separator}${rootName}",
+    "gitlens.advanced.messages": {
+        "suppressShowKeyBindingsNotice": true
+    },
+    "gitlens.currentLine.enabled": false,
+    "editor.parameterHints": false,
+    "stylelint.enable": true,
+
+    "workbench.iconTheme": "vscode-icons",
+    "vim.easymotion": true,
+    "vim.normalModeKeyBindingsNonRecursive": [
+        {
+          "before": ["u"],
+          "after": [],
+          "commands": [
+              {
+                  "command": "undo",
+                  "args": []
+              }
+          ]
+        },
+        {
+          "before": ["<C-r>"],
+          "after": [],
+          "commands": [
+              {
+                  "command": "redo",
+                  "args": []
+              }
+          ]
+        }
+      ],
+}
