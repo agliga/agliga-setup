@@ -1,0 +1,9 @@
+; xfce-terminal rule to undecorate all existing and new windows
+
+(if (is (window_class) "Xfce4-terminal")
+ (begin
+  (maximize)
+  (undecorate)
+  (set_workspace 2)
+ )
+)

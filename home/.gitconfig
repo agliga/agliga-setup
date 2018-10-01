@@ -2,9 +2,9 @@
 [user]
 # Please adapt and uncomment the following lines:
     name = Andrew Gliga
-    email = agliga@ebay.com
+    email = agliga4@gmail.com
 [core]
-    editor = vim
+    editor = nvim
 [web]
     browser = google-chrome
 [push]
@@ -45,8 +45,6 @@
     cad = commit -a --amend
     ced = commit --allow-empty --amend
     #############
-    chs = "!git checkout $SPRINT_BRANCH"
-    chns = "!git checkout -b $SPRINT_BRANCH upstream/$SPRINT_BRANCH"
     chm = checkout master
     #############
     cla = clean -xdf

@@ -22,6 +22,13 @@ bin/update-setup.sh
 
 This will use the current path where update-setup.sh is located.
 
+### Nvim Plugin
+
+To install NeoVim plugins run:
+```shell
+ curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+```
+
 ### TODO
 - Change script to only selectively update files
 - Add more editors

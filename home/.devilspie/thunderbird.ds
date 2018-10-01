@@ -1,0 +1,7 @@
+; thunderbird rule to undecorate all existing and new windows
+
+(if (is (window_class) "Thunderbird")
+ (begin
+  (set_workspace 4)
+ )
+)

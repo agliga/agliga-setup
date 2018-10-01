@@ -1,0 +1,9 @@
+; visual code rule to undecorate all existing and new windows
+
+(if (is (window_class) "Code")
+ (begin
+  (maximize)
+  (undecorate)
+  (set_workspace 3)
+ )
+)

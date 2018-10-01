@@ -8,8 +8,8 @@ ATOM_DIR=$DIR/atom
 HOME_DIR=$DIR/home
 
 # Atom config
-apm list --installed --bare > $ATOM_DIR/atom-pkg.txt
-cp ~/.atom/*.{cson,coffee,less} $ATOM_DIR
+#apm list --installed --bare > $ATOM_DIR/atom-pkg.txt
+#cp ~/.atom/*.{cson,coffee,less} $ATOM_DIR
 
 
 # Shell (bash/zsh) files
@@ -32,3 +32,9 @@ cp ~/.config/nvim/init.vim $HOME_DIR/.config/nvim
 
 # hgrc
 cp ~/.hgrc $HOME_DIR
+
+# Cinnamon
+cp -R ~/.cinnamon $HOME_DIR
+
+# Devil's PIE
+cp -R ~/.devilspie $HOME_DIR

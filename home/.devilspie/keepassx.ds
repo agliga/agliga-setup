@@ -1,0 +1,7 @@
+; keepass rule to undecorate all existing and new windows
+
+(if (is (window_class) "Keepass2")
+ (begin
+  (set_workspace 4)
+ )
+)
