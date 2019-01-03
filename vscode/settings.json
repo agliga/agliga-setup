@@ -10,36 +10,51 @@
     "workbench.editor.tabSizing": "shrink",
     "workbench.statusBar.feedback.visible": false,
     "window.newWindowDimensions": "maximized",
-    "window.title": "${dirty}${activeEditorLong}${separator}${rootName}",
     "gitlens.advanced.messages": {
         "suppressShowKeyBindingsNotice": true
     },
     "gitlens.currentLine.enabled": false,
     "editor.parameterHints": false,
     "stylelint.enable": true,
-
     "workbench.iconTheme": "vscode-icons",
     "vim.easymotion": true,
     "vim.normalModeKeyBindingsNonRecursive": [
         {
-          "before": ["u"],
-          "after": [],
-          "commands": [
-              {
-                  "command": "undo",
-                  "args": []
-              }
-          ]
+            "before": [
+                "u"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "undo",
+                    "args": []
+                }
+            ]
         },
         {
-          "before": ["<C-r>"],
-          "after": [],
-          "commands": [
-              {
-                  "command": "redo",
-                  "args": []
-              }
-          ]
+            "before": [
+                "<C-r>"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "redo",
+                    "args": []
+                }
+            ]
         }
-      ],
+    ],
+    "vim.enableNeovim": true,
+    "vim.handleKeys": {
+        "<C-d>": false,
+        "<C-w>": false,
+        "<C-f>": false,
+        "<C-E>": false
+    },
+    "vim.hlsearch": true,
+    "editor.multiCursorModifier": "alt",
+    "git.confirmSync": false,
+    "breadcrumbs.enabled": true,
+    "window.titleBarStyle": "custom",
+    "typescript.updateImportsOnFileMove.enabled": "always",
 }
