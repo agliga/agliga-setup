@@ -4,7 +4,7 @@
 export HISTFILE=~/.zsh_history
 export HISTSIZE=50000
 export SAVEHIST=50000
-export TERM="xterm-256color"
+#export TERM="xterm-256color"
 
 autoload -U compinit
 compinit
@@ -85,33 +85,55 @@ bindkey "\eOF" end-of-line
 bindkey "\e[H" beginning-of-line
 bindkey "\e[F" end-of-line
 
-# Environment Variables
-#export NPM_PACKAGES=/home/agliga/.npm-packages
-#export NODE_PATH="$NPM_PACKAGES/lib/node_modules:$NODE_PATH"
-#export PATH="$NPM_PACKAGES/bin:$PATH"
-#export PATH="$HOME/.yarn/bin:$PATH"
-
-export PATH=/opt/local/bin:/opt/local/sbin:/home/agliga/Development/flutter/bin:$PATH
-
+export DEV=~/development
+export DF=~/Patch
 export CLICOLOR=1
 export GREP_COLOR='1;37;41'
 export LSCOLORS=ExFxCxDxBxegedabagacad
 
-alias ls="ls --color=always"
+export LD_LIBRARY_PATH=/usr/local/lib
+export IVY_CACHE=~/ivy_cache
+export JAVA_HOME=$(/usr/libexec/java_home)
+export ANDROID_HOME=$HOME/Library/Android/sdk/
+export PYTHONPATH="/Applications/eclipse/plugins/org.python.pydev_3.0.0.201311051910/pysrc"
+export NPM_PACKAGES=$HOME/.npm-packages
+export NODE_PATH="$NPM_PACKAGES/lib/node_modules:$NODE_PATH"
+export PATH="$NPM_PACKAGES/bin:$PATH"
+export SPRINT_BRANCH="Y17_Sprint17"
+
+#alias ls='ls --color'
 alias gr='grep -rni --color=auto'
+alias ll='ls -la'
+alias gr='grep -rn'
+alias ls='ls -G'
 alias ll='ls -la'
 alias ack='ack-5.12'
 
-alias dev='cd ~/Development/'
-alias wj='cd ~/Development/winejoy'
+#Add aliases to directories
+# Vi mode
 
+export GPG_TTY=$(tty)
+
+bindkey -v
 bindkey '^R' history-incremental-search-backward
+
+
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
+[ -s "/usr/local/opt/nvm/etc/bash_completion" ] && . "/usr/local/opt/nvm/etc/bash_completion"  # This loads nvm bash_completion
 
 # This should always be run last either in .bashrc or as a script in .bashrc.d
 #
+source $HOME/.rvm/scripts/rvm
+rvm use ruby-2.4.6
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-~/.run-tmux
+#export PATH="$HOME/.yarn/bin:$PATH"
+#[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$HOME/.rvm/bin:$PATH"

@@ -18,7 +18,7 @@
     "editor.parameterHints": false,
     "stylelint.enable": true,
 
-    "workbench.iconTheme": "vscode-icons",
+
     "vim.easymotion": true,
     "vim.normalModeKeyBindingsNonRecursive": [
         {
@@ -41,5 +41,12 @@
               }
           ]
         }
-      ],
+    ],
+    "workbench.colorTheme": "One Dark Pro",
+    "java.home": "/Library/Java/JavaVirtualMachines/jdk1.8.0_144.jdk/Contents/Home",
+    "maven.executable.path": "/Applications/ride-5.3.0-mac64/apache-maven-3.1.1/bin/mvn",
+    "java.configuration.checkProjectSettingsExclusions": false,
+    "editor.suggestSelection": "first",
+    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+    "typescript.updateImportsOnFileMove.enabled": "always"
 }
