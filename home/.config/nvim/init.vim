@@ -468,7 +468,7 @@ let g:vim_json_syntax_conceal = 0
 "|                                                                     Color Scheme |
 "====================================================================================
 
-let g:solarized_termcolors=256
+"let g:solarized_termcolors=256
 syntax enable
 "let g:solarized_termcolors=256
 "let g:solarized_termtrans=1
