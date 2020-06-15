@@ -89,7 +89,7 @@ export DEV=~/development
 export DF=~/Patch
 export CLICOLOR=1
 export GREP_COLOR='1;37;41'
-export LSCOLORS=ExFxCxDxBxegedabagacad
+export LS_COLORS=$LS_COLORS:'di=0;34:'
 
 export LD_LIBRARY_PATH=/usr/local/lib
 export IVY_CACHE=~/ivy_cache
@@ -105,9 +105,8 @@ export SPRINT_BRANCH="Y17_Sprint17"
 alias gr='grep -rni --color=auto'
 alias ll='ls -la'
 alias gr='grep -rn'
-alias ls='ls -G'
-alias ll='ls -la'
 alias ack='ack-5.12'
+alias ls='ls --color=auto'
 
 #Add aliases to directories
 # Vi mode
@@ -125,10 +124,11 @@ export NVM_DIR="$HOME/.nvm"
 
 # This should always be run last either in .bashrc or as a script in .bashrc.d
 #
-source $HOME/.rvm/scripts/rvm
-rvm use ruby-2.4.6
-
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+[ -f /usr/share/fzf/key-bindings.zsh ] && source /usr/share/fzf/key-bindings.zsh
+[ -f /usr/share/fzf/completion.zsh ] && source /usr/share/fzf/completion.zsh
+
+
 
 #export PATH="$HOME/.yarn/bin:$PATH"
 #[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
@@ -137,3 +137,6 @@ rvm use ruby-2.4.6
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$HOME/.rvm/bin:$PATH"
+
+[ -z "$TMUX" ] && exec tmux new-session -A -s main
+

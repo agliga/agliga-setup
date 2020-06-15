@@ -4,9 +4,9 @@
     name = Andrew Gliga
     email = agliga4@gmail.com
 [core]
-	editor = code --wait
+	editor = nvim
 [web]
-    browser = google-chrome
+    browser = firefox
 [push]
     default = matching
 [diff]

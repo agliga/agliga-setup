@@ -28,13 +28,17 @@ cp ~/.vimrc $HOME_DIR
 
 # NeoVim
 mkdir -p $HOME_DIR/.config/nvim
+mkdir -p $HOME_DIR/.config/termite
 cp ~/.config/nvim/init.vim $HOME_DIR/.config/nvim
+cp ~/.config/termite/config $HOME_DIR/.config/termite
 
 # hgrc
-cp ~/.hgrc $HOME_DIR
+#cp ~/.hgrc $HOME_DIR
 
 # Cinnamon
 cp -R ~/.cinnamon $HOME_DIR
+
+#KDE
 
 # Devil's PIE
 cp -R ~/.devilspie $HOME_DIR

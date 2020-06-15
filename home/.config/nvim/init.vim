@@ -36,8 +36,8 @@ Plug 'nathanaelkane/vim-indent-guides'
 
 
 " Autocomplete
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
+"Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+"Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 Plug 'ervandew/supertab'
 
 " Version Control tools
@@ -45,7 +45,8 @@ Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
 
 " Color
-Plug 'altercation/vim-colors-solarized'
+" Plug 'altercation/vim-colors-solarized'
+Plug 'morhetz/gruvbox'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
@@ -475,7 +476,7 @@ syntax enable
 "let g:solarized_contrast="normal"
 "let g:solarized_visibility="normal"
 set background=dark
-colorscheme solarized
+colorscheme gruvbox
 
 
 "====================================================================================
