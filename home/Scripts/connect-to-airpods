@@ -1,0 +1,6 @@
+#!/bin/sh
+
+ID=`bluetoothctl paired-devices | grep AirPods | awk '{print $2}'`
+
+bluetoothctl disconnect $ID
+bluetoothctl connect $ID

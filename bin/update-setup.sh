@@ -42,3 +42,16 @@ cp -R ~/.cinnamon $HOME_DIR
 
 # Devil's PIE
 cp -R ~/.devilspie $HOME_DIR
+
+## I3
+
+mkdir -p $HOME_DIR/.config/i3
+mkdir -p $HOME_DIR/.config/i3blocks
+cp ~/.config/i3/config $HOME_DIR/.config/i3
+cp ~/.config/i3blocks/config $HOME_DIR/.config/i3blocks
+
+## Scripts
+mkdir $HOME_DIR/Scripts
+cp -R ~/Scripts $HOME_DIR
+## Remove some scripts
+rm $HOME_DIR/Scripts/bin/sip-sqlite.sh

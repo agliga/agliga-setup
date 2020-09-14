@@ -1,0 +1,17 @@
+#!/bin/sh
+case $BLOCK_BUTTON in
+	1) nordvpn c;;
+	3) notify-send "VPN module, click to connect
+Shift click to disconnect.
+🛑: Disconnected
+✅: Connected" ;;
+	6) nordvpn d;;
+esac
+
+
+result=$(nmcli -t -f type,state,connection d | egrep "^(tun|tap):connected" | awk -F':' '{ print $3 }')
+[[ -z $result ]] && echo ' 🛑' || echo " ✅"
+
+
+#echo $(nordvpn status | grep "Status" | sed "s/Connected/✅/;s/Disconnected/🛑/;s/Status:/VPN/")
+

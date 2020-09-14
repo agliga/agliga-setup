@@ -31,7 +31,6 @@ export PROMPT=$'%B%F{black}(%f%b%F{cyan}%~%f%B%F{black}) %F{green}%B%#%b%f %f%b'
 
 # Vars used later on by Zsh
 export EDITOR="nvim"
-export BROWSER=links
 
 ##################################################################
 # Stuff to make my life easier
@@ -93,12 +92,13 @@ export LS_COLORS=$LS_COLORS:'di=0;34:'
 
 export LD_LIBRARY_PATH=/usr/local/lib
 export IVY_CACHE=~/ivy_cache
-export JAVA_HOME=$(/usr/libexec/java_home)
-export ANDROID_HOME=$HOME/Library/Android/sdk/
+#export JAVA_HOME=$(/usr/libexec/java_home)
+export ANDROID_HOME=$HOME/Android/
+export ANDROID_SDK_ROOT=$HOME/Android
 export PYTHONPATH="/Applications/eclipse/plugins/org.python.pydev_3.0.0.201311051910/pysrc"
 export NPM_PACKAGES=$HOME/.npm-packages
 export NODE_PATH="$NPM_PACKAGES/lib/node_modules:$NODE_PATH"
-export PATH="$NPM_PACKAGES/bin:$PATH"
+export PATH="$NPM_PACKAGES/bin:$HOME/.gem/ruby/2.7.0/bin:$HOME/Scripts/bin:$HOME/Scripts/i3cmds:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools:$PATH"
 export SPRINT_BRANCH="Y17_Sprint17"
 
 #alias ls='ls --color'
@@ -119,8 +119,8 @@ bindkey '^R' history-incremental-search-backward
 
 
 export NVM_DIR="$HOME/.nvm"
-[ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
-[ -s "/usr/local/opt/nvm/etc/bash_completion" ] && . "/usr/local/opt/nvm/etc/bash_completion"  # This loads nvm bash_completion
+export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 
 # This should always be run last either in .bashrc or as a script in .bashrc.d
 #

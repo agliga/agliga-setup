@@ -33,3 +33,5 @@ To install NeoVim plugins run:
 - Change script to only selectively update files
 - Add more editors
 - More cowbell
+
+*Scripts are from voidrice config*
