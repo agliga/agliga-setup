@@ -17,6 +17,7 @@ cp ~/.profile $HOME_DIR
 cp ~/.zprofile $HOME_DIR
 cp ~/.zshrc $HOME_DIR
 cp ~/.bashrc $HOME_DIR
+cp ~/.p10k.zsh $HOME_DIR
 cp ~/.run-tmux $HOME_DIR
 cp ~/.gitconfig $HOME_DIR
 
@@ -51,7 +52,7 @@ cp ~/.config/i3/config $HOME_DIR/.config/i3
 cp ~/.config/i3blocks/config $HOME_DIR/.config/i3blocks
 
 ## Scripts
-mkdir $HOME_DIR/Scripts
+mkdir -p $HOME_DIR/Scripts
 cp -R ~/Scripts $HOME_DIR
 ## Remove some scripts
 rm $HOME_DIR/Scripts/bin/sip-sqlite.sh

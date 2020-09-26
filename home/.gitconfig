@@ -3,6 +3,7 @@
 # Please adapt and uncomment the following lines:
     name = Andrew Gliga
     email = agliga4@gmail.com
+	signingkey = 86790FF65DB0A02D
 [core]
 	editor = nvim
 [web]

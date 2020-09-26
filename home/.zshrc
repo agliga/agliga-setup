@@ -1,142 +1,113 @@
-###########################################################
-# Options for Zsh
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
 
-export HISTFILE=~/.zsh_history
-export HISTSIZE=50000
-export SAVEHIST=50000
-#export TERM="xterm-256color"
+# If you come from bash you might have to change your $PATH.
+# export PATH=$HOME/bin:/usr/local/bin:$PATH
 
-autoload -U compinit
-compinit
-#setopt autopushd pushdminus pushdsilent pushdtohome
-setopt autocd
-setopt completealiases
-#setopt cdablevars
-#setopt ignoreeof
-#setopt interactivecomments
-#setopt nobanghist
-#setopt noclobber
-setopt HIST_REDUCE_BLANKS
-setopt HIST_IGNORE_SPACE
-setopt SH_WORD_SPLIT
-#setopt nohup
+# Path to your oh-my-zsh installation.
+export ZSH="/home/agliga/.oh-my-zsh"
 
-export RPROMPT=$'%F{green}[%f%F{blue}%B%n%f%b%F{green}@%f%F{blue}%B%m%b%f %B%F{red}%?%f%b%F{green}]%f'
-export PROMPT=$'%B%F{black}(%f%b%F{cyan}%~%f%B%F{black}) %F{green}%B%#%b%f %f%b'
-#export PROMPT=$'%F{green}[ %{\e[1;34m%}%h%{\e[0m%} %{\e[1;31m%}%?%{\e[0m%}%F{green}]%B%#%b%f %B%E%b'
-# PS1 and PS2
-#export PS1="$(print '%{\e[1;34m%}%n%{\e[0m%}'):$(print '%{\e[0;34m%}%~%{\e[0m%}')$ "
-#export PS2="$(print '%{\e[0;34m%}>%{\e[0m%}')"
+# Set name of the theme to load --- if set to "random", it will
+# load a random theme each time oh-my-zsh is loaded, in which case,
+# to know which specific one was loaded, run: echo $RANDOM_THEME
+# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
+#ZSH_THEME="robbyrussell"
+ZSH_THEME="powerlevel10k/powerlevel10k"
+
+# Set list of themes to pick from when loading at random
+# Setting this variable when ZSH_THEME=random will cause zsh to load
+# a theme from this variable instead of looking in $ZSH/themes/
+# If set to an empty array, this variable will have no effect.
+# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
+
+# Uncomment the following line to use case-sensitive completion.
+# CASE_SENSITIVE="true"
+
+# Uncomment the following line to use hyphen-insensitive completion.
+# Case-sensitive completion must be off. _ and - will be interchangeable.
+# HYPHEN_INSENSITIVE="true"
+
+# Uncomment the following line to disable bi-weekly auto-update checks.
+# DISABLE_AUTO_UPDATE="true"
+
+# Uncomment the following line to automatically update without prompting.
+# DISABLE_UPDATE_PROMPT="true"
+
+# Uncomment the following line to change how often to auto-update (in days).
+export UPDATE_ZSH_DAYS=13
+
+# Uncomment the following line if pasting URLs and other text is messed up.
+# DISABLE_MAGIC_FUNCTIONS="true"
+
+# Uncomment the following line to disable colors in ls.
+# DISABLE_LS_COLORS="true"
+
+# Uncomment the following line to disable auto-setting terminal title.
+# DISABLE_AUTO_TITLE="true"
+
+# Uncomment the following line to enable command auto-correction.
+# ENABLE_CORRECTION="true"
+
+# Uncomment the following line to display red dots whilst waiting for completion.
+# COMPLETION_WAITING_DOTS="true"
+
+# Uncomment the following line if you want to disable marking untracked files
+# under VCS as dirty. This makes repository status check for large repositories
+# much, much faster.
+# DISABLE_UNTRACKED_FILES_DIRTY="true"
+
+# Uncomment the following line if you want to change the command execution time
+# stamp shown in the history command output.
+# You can set one of the optional three formats:
+# "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
+# or set a custom format using the strftime function format specifications,
+# see 'man strftime' for details.
+# HIST_STAMPS="mm/dd/yyyy"
+
+# Would you like to use another custom folder than $ZSH/custom?
+# ZSH_CUSTOM=/path/to/new-custom-folder
+
+# Which plugins would you like to load?
+# Standard plugins can be found in $ZSH/plugins/
+# Custom plugins may be added to $ZSH_CUSTOM/plugins/
+# Example format: plugins=(rails git textmate ruby lighthouse)
+# Add wisely, as too many plugins slow down shell startup.
+plugins=(git)
+
+source $ZSH/oh-my-zsh.sh
+
+# User configuration
+
+# export MANPATH="/usr/local/man:$MANPATH"
+
+# You may need to manually set your language environment
+# export LANG=en_US.UTF-8
+
+# Preferred editor for local and remote sessions
+# if [[ -n $SSH_CONNECTION ]]; then
+#   export EDITOR='vim'
+# else
+#   export EDITOR='mvim'
+# fi
+
+# Compilation flags
+# export ARCHFLAGS="-arch x86_64"
+
+# Set personal aliases, overriding those provided by oh-my-zsh libs,
+# plugins, and themes. Aliases can be placed here, though oh-my-zsh
+# users are encouraged to define aliases within the ZSH_CUSTOM folder.
+# For a full list of active aliases, run `alias`.
 #
-
-# Vars used later on by Zsh
-export EDITOR="nvim"
-
-##################################################################
-# Stuff to make my life easier
-
-# allow approximate
-zstyle ':completion:*' menu select
-#zstyle ':completion:*:match:*' original only
-#zstyle ':completion:*:approximate:*' max-errors 1 numeric
-
-# tab completion for PID :D
-zstyle ':completion:*:*:kill:*' menu yes select
-zstyle ':completion:*:kill:*' force-list always
-
-# cd not select parent dir
-zstyle ':completion:*:cd:*' ignore-parents parent pwd
-
-# useful for path editing — backward-delete-word, but with / as additional delimiter
-backward-delete-to-slash () {
-  local WORDCHARS=${WORDCHARS//\//}
-  zle .backward-delete-word
-}
-zle -N backward-delete-to-slash
-
-##################################################################
-# Key bindings
-# http://mundy.yazzy.org/unix/zsh.php
-# http://www.zsh.org/mla/home/2000/msg00727.html
-
-typeset -g -A key
-bindkey '^?' backward-delete-char
-bindkey '^e[1~' beginning-of-line #Home
-bindkey '^[[5~' up-line-or-history
-bindkey '^[[3~' delete-char #Del
-bindkey '^e[4~' end-of-line #End
-bindkey '^[[6~' down-line-or-history
-bindkey '^[[A' up-line-or-search
-bindkey '^[[D' backward-char
-bindkey '^[[B' down-line-or-search
-bindkey '^[[C' forward-char
-bindkey '^[w' backward-delete-to-slash
-# completion in the middle of a line
-bindkey '^i' expand-or-complete-prefix
-
-# for rxvt
-bindkey "\e[7~" beginning-of-line # Home
-bindkey "\e[8~" end-of-line # End
-# for non RH/Debian xterm, can't hurt for RH/Debian xterm
-bindkey "\eOH" beginning-of-line
-bindkey "\eOF" end-of-line
-# for freebsd console
-bindkey "\e[H" beginning-of-line
-bindkey "\e[F" end-of-line
-
-export DEV=~/development
-export DF=~/Patch
-export CLICOLOR=1
-export GREP_COLOR='1;37;41'
-export LS_COLORS=$LS_COLORS:'di=0;34:'
-
-export LD_LIBRARY_PATH=/usr/local/lib
-export IVY_CACHE=~/ivy_cache
-#export JAVA_HOME=$(/usr/libexec/java_home)
-export ANDROID_HOME=$HOME/Android/
-export ANDROID_SDK_ROOT=$HOME/Android
-export PYTHONPATH="/Applications/eclipse/plugins/org.python.pydev_3.0.0.201311051910/pysrc"
-export NPM_PACKAGES=$HOME/.npm-packages
-export NODE_PATH="$NPM_PACKAGES/lib/node_modules:$NODE_PATH"
-export PATH="$NPM_PACKAGES/bin:$HOME/.gem/ruby/2.7.0/bin:$HOME/Scripts/bin:$HOME/Scripts/i3cmds:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools:$PATH"
-export SPRINT_BRANCH="Y17_Sprint17"
-
-#alias ls='ls --color'
-alias gr='grep -rni --color=auto'
-alias ll='ls -la'
-alias gr='grep -rn'
-alias ack='ack-5.12'
-alias ls='ls --color=auto'
-
-#Add aliases to directories
-# Vi mode
-
-export GPG_TTY=$(tty)
-
-bindkey -v
-bindkey '^R' history-incremental-search-backward
+# Example aliases
+# alias zshconfig="mate ~/.zshrc"
+# alias ohmyzsh="mate ~/.oh-my-zsh"
 
 
-
-export NVM_DIR="$HOME/.nvm"
-export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
-
-# This should always be run last either in .bashrc or as a script in .bashrc.d
-#
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-[ -f /usr/share/fzf/key-bindings.zsh ] && source /usr/share/fzf/key-bindings.zsh
-[ -f /usr/share/fzf/completion.zsh ] && source /usr/share/fzf/completion.zsh
-
-
-
-#export PATH="$HOME/.yarn/bin:$PATH"
-#[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-
-
-# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$HOME/.rvm/bin:$PATH"
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 [ -z "$TMUX" ] && exec tmux new-session -A -s main
-
