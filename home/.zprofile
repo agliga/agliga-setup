@@ -10,18 +10,12 @@ export BROWSER="brave"
 export EDITOR="nvim"
 export TERMINAL="termite"
 
-export PATH="$PATH:$M2_HOME/bin"
 export PLASMA_USE_QT_SCALING=1
 
 alias gr='grep -rn'
 alias ls='ls -G'
 alias ll='ls -la'
 alias vim="nvim"
-
-alias sip="cd /home/agliga/Development/sip"
-
-# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$HOME/.rvm/gems/ruby-2.4.6/bin:$PATH:$HOME/.rvm/bin"
 
 alias ls='ls --color'
 alias gr='grep -rni --color=auto'
