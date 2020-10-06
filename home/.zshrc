@@ -8,6 +8,10 @@ fi
 
 source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
 
+
+# zsh tmux settings
+ZSH_TMUX_AUTOSTART='true'
+
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -81,10 +85,10 @@ export UPDATE_ZSH_DAYS=13
 # Add wisely, as too many plugins slow down shell startup.
 
 # zsh tmux settings
-ZSH_TMUX_AUTOSTART='true'
+#ZSH_TMUX_AUTOSTART='true'
 
 export FZF_BASE="/usr/share/fzf"
-plugins=(git nvm rvm vi-mode fzf tmux)
+plugins=(git nvm rvm npm yarn vi-mode fzf tmux)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -120,4 +124,3 @@ source $ZSH/oh-my-zsh.sh
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-#[ -z "$TMUX" ] && exec tmux new-session -A -s main

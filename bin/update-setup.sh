@@ -38,6 +38,8 @@ cp ~/.config/termite/config $HOME_DIR/.config/termite
 
 # Cinnamon
 cp -R ~/.cinnamon $HOME_DIR
+# Alacritty
+cp -R ~/.config/alacritty $HOME_DIR
 
 #KDE
 
@@ -56,3 +58,6 @@ mkdir -p $HOME_DIR/Scripts
 cp -R ~/Scripts $HOME_DIR
 ## Remove some scripts
 rm $HOME_DIR/Scripts/bin/sip-sqlite.sh
+
+## Removing some file references
+sed -i '/signingkey/d' home/.gitconfig

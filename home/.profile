@@ -8,7 +8,7 @@ export DEV=~/development
 
 export BROWSER="brave"
 export EDITOR="nvim"
-export TERMINAL="termite"
+export TERMINAL="alacritty"
 
 export PLASMA_USE_QT_SCALING=1
 
