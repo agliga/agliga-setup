@@ -78,12 +78,12 @@ bindsym $mod+Shift+q		[con_id="__focused__" instance="^(?!dropdown_).*$"] exec -
 bindsym $mod+Shift+w			exec --no-startup-id $BROWSER
 bindsym $mod+Shift+c			exec --no-startup-id code
 
-#bindsym $mod+e			exec $term -e neomutt && pkill -RTMIN+12 i3blocks
+bindsym $mod+Shift+e			exec $term -t rangerterm -e ranger
 
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
-bindsym $mod+Shift+e		exec --no-startup-id tutorialvids
+#bindsym $mod+Shift+e		exec --no-startup-id tutorialvids
 
 bindsym $mod+Shift+r		exec --no-startup-id winresize
 
@@ -386,5 +386,6 @@ bindsym XF86WLAN		exec $netrefresh
 
 exec xrandr --dpi 260
 exec nm-applet
+exec dropbox
 exec blueberry-tray
 exec feh --bg-fill ~/.config/background.jpg

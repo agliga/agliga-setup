@@ -26,3 +26,5 @@ alias ls='ls --color=auto'
 
 export GPG_TTY=$(tty)
 
+source /usr/share/rvm/scripts/rvm
+source /usr/share/rvm/scripts/completion
